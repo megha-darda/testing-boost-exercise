@@ -64,5 +64,7 @@ jobs:
         with:
           name: build-${{ matrix.compiler }}-${{ matrix.build_type }}
           path: build
+      - name: Ensure test binary is executable
+        run: chmod +x build/testsidemade
       - name: Test
         run: ctest --test-dir build --output-on-failure
